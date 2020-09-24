@@ -8,7 +8,7 @@ Build a simple bookstore management tool with React and Redux
 ![Screenshot]()
 
 # Live Demo
-[Live Demo Link]() 
+[Live Demo Link](https://magicbooks-bookstore.herokuapp.com/) 
 
 
 # Built With
