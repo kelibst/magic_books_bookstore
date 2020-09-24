@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 function BookForm() {
-    const categories = [
-        'action',
-        'biography',
-        'history',
-        'horror',
-        'kids',
-        'learning',
-        'sci-fi',
-    ];
+  const categories = [
+    'action',
+    'biography',
+    'history',
+    'horror',
+    'kids',
+    'learning',
+    'sci-fi',
+  ];
 
-    return (
+  return (
     <form className="form-row">
       <div className="col">
         <input
@@ -40,7 +40,7 @@ function BookForm() {
         </button>
       </div>
     </form>
-    )
+  );
 }
 
-export default BookForm
+export default BookForm;
