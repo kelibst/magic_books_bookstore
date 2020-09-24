@@ -19,7 +19,7 @@ function BookForm() {
           type="text"
           name="book"
           id="book-input"
-          placeholder="new book"
+          placeholder="Add new book"
         />
       </div>
       <div className="col">
