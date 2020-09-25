@@ -20,4 +20,4 @@ const initData = {
   ],
 };
 
-export default initData;
+export { initData, idGenerator };

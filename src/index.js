@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import rootReducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import initData from './initData';
+import { initData } from './initData';
 
 const store = createStore(rootReducer, initData);
 ReactDOM.render(
