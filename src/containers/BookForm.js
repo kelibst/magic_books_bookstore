@@ -4,13 +4,13 @@ import { createBook } from '../actions/index'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 const categories = [
-  'action',
-  'biography',
-  'history',
-  'horror',
-  'kids',
-  'learning',
-  'sci-fi',
+  'Action',
+  'Biography',
+  'History',
+  'Horror',
+  'Kids',
+  'Learning',
+  'Sci-fi',
 ];
 
 const catDropDown = categories.map(category => (
@@ -42,22 +42,23 @@ class BookForm extends Component {
     }
   }
 
-  handleSubmit = (e) =>{
-    e.preventDefault();
-    const {title, category} = this.state;
+  handleSubmit = (e) =>{  
+    const {title} = this.state;
     if(title){
-      createBook({id: idGenerator(), title, category});
+      createBook(this.state);
       this.setState({
         title: '',
         category: categories[0],
       })
+      console.log(this.state)
     }
+    e.preventDefault();
   }
 
 
   render(){
     return (
-      <form className="form-row">
+      <form className="form-row" onSubmit={this.handleSubmit}>
         <div className="col">
           <input
             className="form-control"
@@ -73,12 +74,13 @@ class BookForm extends Component {
           <select className="form-control" value={this.state.category} name="category" onChange={this.handleChange}>
             <option value="" disabled>
               Category
+              {console.log(this.props)}
             </option>
             {catDropDown}
           </select>
         </div>
         <div className="col">
-          <button className="btn btn-primary mb-2" type="submit" onClick={this.handleSubmit}>
+          <button className="btn btn-primary mb-2" type="submit">
             create new book
           </button>
         </div>
@@ -91,8 +93,9 @@ class BookForm extends Component {
 BookForm.propTypes = {
   createBook: PropTypes.func.isRequired
 }
+const mapStateToProps = state => ({ books: [state.books] });
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book))
 })
-export default connect(null, mapDispatchToProps)(BookForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BookForm);
