@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { idGenerator } from '../initData';
-import { createBook } from '../actions/index'
+import { createBook } from '../actions/index';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
+
+
 const categories = [
   'Action',
   'Biography',
@@ -26,7 +29,7 @@ class BookForm extends Component {
       title: '',
       category: categories[0]
     };
-  }
+  };
 
   handleChange = (e) =>{
     const {name, value} = e.target;
@@ -39,20 +42,19 @@ class BookForm extends Component {
       this.setState({
         category: value
       })
-    }
-  }
+    };
+  };
 
   handleSubmit = (e) =>{  
-    const {title} = this.state;
+    e.preventDefault();
+    const {title, category} = this.state;
     if(title){
-      createBook(this.state);
+      this.props.createBook({ id: (idGenerator()), title, category });
       this.setState({
         title: '',
         category: categories[0],
-      })
-      console.log(this.state)
+      })      
     }
-    e.preventDefault();
   }
 
 
@@ -74,7 +76,6 @@ class BookForm extends Component {
           <select className="form-control" value={this.state.category} name="category" onChange={this.handleChange}>
             <option value="" disabled>
               Category
-              {console.log(this.props)}
             </option>
             {catDropDown}
           </select>
@@ -93,9 +94,8 @@ class BookForm extends Component {
 BookForm.propTypes = {
   createBook: PropTypes.func.isRequired
 }
-const mapStateToProps = state => ({ books: [state.books] });
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(BookForm);
+export default connect(null, mapDispatchToProps)(BookForm);
