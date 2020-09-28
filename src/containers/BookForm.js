@@ -1,10 +1,9 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import { idGenerator } from '../initData';
-import { createBook } from '../actions/index';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-
+import { idGenerator } from '../initData';
+import { createBook } from '../actions/index';
 
 const categories = [
   'Action',
@@ -22,43 +21,43 @@ const catDropDown = categories.map(category => (
   </option>
 ));
 class BookForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      id: idGenerator(),
+    this.state = {
       title: '',
-      category: categories[0]
+      category: categories[0],
     };
-  };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  handleChange = (e) =>{
-    const {name, value} = e.target;
-    if(name === 'title'){
+  handleChange(e) {
+    const { name, value } = e.target;
+    if (name === 'title') {
       this.setState({
-        title: value
-      })
-
-    }else if (name==='category'){
+        title: value,
+      });
+    } else if (name === 'category') {
       this.setState({
-        category: value
-      })
-    };
-  };
-
-  handleSubmit = (e) =>{  
-    e.preventDefault();
-    const {title, category} = this.state;
-    if(title){
-      this.props.createBook({ id: (idGenerator()), title, category });
-      this.setState({
-        title: '',
-        category: categories[0],
-      })      
+        category: value,
+      });
     }
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+    if (title) {
+      createBook({ id: (idGenerator()), title, category });
+      this.setState({
+        title: '',
+        category: categories[0],
+      });
+    }
+  }
 
-  render(){
+  render() {
     return (
       <form className="form-row" onSubmit={this.handleSubmit}>
         <div className="col">
@@ -90,12 +89,11 @@ class BookForm extends Component {
   }
 }
 
-
 BookForm.propTypes = {
-  createBook: PropTypes.func.isRequired
-}
+  createBook: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = dispatch => ({
-  createBook: book => dispatch(createBook(book))
-})
+  createBook: book => dispatch(createBook(book)),
+});
 export default connect(null, mapDispatchToProps)(BookForm);
