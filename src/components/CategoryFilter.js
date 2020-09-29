@@ -16,7 +16,7 @@ const CategoryFilter = ({ handleFilterChange }) => (
     <p>Order by Caterogry</p>
     <select name="category" id="category" onChange={handleFilterChange}>
       <option value="All">All</option>
-      { categories.map((category, index) => <option value={category} key={index}>{category}</option>) }
+      { categories.map(category => <option value={category} key={category}>{category}</option>) }
     </select>
   </div>
 );
