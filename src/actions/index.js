@@ -10,7 +10,7 @@ const removeBook = book => ({
 
 const filterChanges = (cat = 'All') => ({
   type: 'CHANGE_FILTER',
-  payload: cat
+  payload: cat,
 });
 
 export { createBook, removeBook, filterChanges };
