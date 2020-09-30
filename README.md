@@ -1,11 +1,15 @@
 # magic_books_bookstore
-Build a simple bookstore management tool with React and Redux 
+Build a simple bookstore management tool with React and Redux. 
 
 - Basic Books
-- Users can........
+- Users can:
+    - Add Book
+    - Remove Book
+    - Visit Categories page
+    - Sort book by category 
 
 # Screenshot
-![Screenshot]()
+![Screenshot](src/assets/screenshot.gif)
 
 # Live Demo
 [Live Demo Link](https://magicbooks-bookstore.herokuapp.com/) 
