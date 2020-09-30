@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Book = ({ book, handleRemoveBook }) => (
+const Book = ({ book, handleRemoveBook,handleEditBook }) => (
   <div className="card row align-items-center  flex-row my-2">
     <div className="col-6">
       <p>{book.id}</p>
@@ -9,11 +9,11 @@ const Book = ({ book, handleRemoveBook }) => (
       <h4 className="card-title text-capitalize font-weight-bolder">{book.title}</h4>
       <div className="btn-container justify-self-space">
         <button type="button" className="btn border-0  btn-outline-danger" onClick={() => handleRemoveBook(book)}>Remove</button>
-        <button type="button" className="btn border-0  btn-outline-primary" onClick={() => handleRemoveBook(book)}> Edit</button>
+        <button type="button" className="btn border-0  btn-outline-primary" onClick={() => handleEditBook(book)}> Edit</button>
       </div>
     </div>
     <div className="col-6 d-flex justify-content-end">
-      <button type="button" className="btn btn-primary" onClick={() => handleRemoveBook(book)}>Update</button>
+      <button type="button" className="btn btn-primary" onClick={() => handleEditBook(book)}>Update</button>
     </div>
 
   </div>

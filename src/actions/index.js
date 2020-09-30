@@ -13,4 +13,9 @@ const filterChanges = (cat = 'All') => ({
   payload: cat,
 });
 
-export { createBook, removeBook, filterChanges };
+const editBook = book => ({
+  type: 'EDIT_BOOK',
+  payload: book,
+});
+
+export { createBook, removeBook, filterChanges, editBook };
