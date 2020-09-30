@@ -6,15 +6,16 @@ import { createStore } from 'redux';
 import rootReducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import initData from './initData';
 
-const store = createStore(rootReducer, initData);
+const store = createStore(rootReducer);
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
+
+  <React.StrictMode>
+    <Provider store={store}>
       <App />
-    </React.StrictMode>
-  </Provider>,
+    </Provider>
+  </React.StrictMode>,
+
   document.getElementById('root'),
 );
 
