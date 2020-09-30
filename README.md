@@ -2,7 +2,7 @@
 Build a simple bookstore management tool with React and Redux 
 
 - Basic Books
-- Users can.........
+- Users can........
 
 # Screenshot
 ![Screenshot]()
