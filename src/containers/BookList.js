@@ -19,21 +19,14 @@ const BookList = ({
   return (
     <div>
       <CategoryFilter handleFilterChange={handleFilterChange} />
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Category</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="container-fluid">
+      
+        <div>
           {books.filter(book => (filter === 'All' || book.category === filter)).map(book => (
             <Book book={book} key={book.id} handleRemoveBook={handleRemoveBook} />
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   );
 };
