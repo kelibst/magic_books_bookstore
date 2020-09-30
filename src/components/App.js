@@ -1,18 +1,19 @@
 import React from 'react';
-import BookForm from '../containers/BookForm';
-import BookList from '../containers/BookList';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from '../containers/NavBar';
+import Home from './Home';
+import Categories from './Categories';
 
-function App() {
-  return (
+const App = () => (
+  <BrowserRouter>
     <div className="App bg-light">
-    <NavBar />
-      <div className="container my-5 py-5">
-        <BookList />
-        <BookForm />  
-      </div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/categories" component={Categories} />
+      </Switch>
     </div>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;
