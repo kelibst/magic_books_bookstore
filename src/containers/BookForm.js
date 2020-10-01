@@ -81,7 +81,7 @@ class BookForm extends Component {
         </div>
         <div className="col">
           <button className="btn btn-primary mb-2" type="submit">
-            create new book
+            Add Book
           </button>
         </div>
       </form>
