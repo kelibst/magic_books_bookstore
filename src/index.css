@@ -31,3 +31,7 @@ code {
   margin: 2rem auto;
   display: flex;
 }
+
+.border-rightt{
+  border-right: 1px solid lightgray;
+}
