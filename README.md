@@ -3,10 +3,10 @@ Build a simple bookstore management tool with React and Redux.
 
 - Basic Books
 - Users can:
-    - Add Book
-    - Remove Book
+    - Add a book
+    - Remove a book
     - Visit Categories page
-    - Sort book by category 
+    - Sort book bys category 
 
 # Screenshot
 ![Screenshot](src/assets/screenshot.gif)
@@ -19,6 +19,7 @@ Build a simple bookstore management tool with React and Redux.
 
 - HTML 
 - CSS
+- BOOTSTRAP
 - JAVASCRIPT
 - NPM
 - REACT
