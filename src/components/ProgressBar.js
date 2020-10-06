@@ -14,9 +14,29 @@ class ProgressBar extends Component {
 
   render() {
     const { radius, stroke, progress } = this.props;
-
+    const strokes = {
+      blue: '#007bff',
+      danger: '#f00',
+      orange: '#f2912a',
+      purple: '#f22ad3',
+    };
     const strokeDashoffset = (this.circumference - (progress / 100) * this.circumference);
 
+    const strokeColor = () => {
+      const newProg = Number(progress);
+
+      let res = strokes.blue;
+      if (newProg < 30) {
+        res = strokes.danger;
+      } else if (newProg > 30 && newProg <= 50) {
+        res = strokes.orange;
+      } else if (newProg > 50 && newProg <= 70) {
+        res = strokes.blue;
+      } else if (newProg > 70) {
+        res = strokes.purple;
+      }
+      return res;
+    };
     return (
       <svg
         height={radius * 2}
@@ -31,7 +51,7 @@ class ProgressBar extends Component {
           cy={radius}
         />
         <circle
-          stroke="#007bff"
+          stroke={strokeColor()}
           fill="transparent"
           strokeDasharray={`${this.circumference} ${this.circumference}`}
           style={{ strokeDashoffset }}
@@ -46,9 +66,9 @@ class ProgressBar extends Component {
 }
 
 ProgressBar.propTypes = {
-  radius: PropTypes.func.isRequired,
-  stroke: PropTypes.func.isRequired,
-  progress: PropTypes.func.isRequired,
+  radius: PropTypes.number.isRequired,
+  stroke: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;
