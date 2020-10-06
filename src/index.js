@@ -1,14 +1,27 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import { createStore } from 'redux';
+import rootReducer from './reducers/index';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(rootReducer);
 ReactDOM.render(
+
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
