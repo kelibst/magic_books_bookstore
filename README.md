@@ -19,6 +19,7 @@ Build a simple bookstore management tool with React and Redux.
 
 - HTML 
 - CSS
+- BOOTSTRAP
 - JAVASCRIPT
 - NPM
 - REACT
