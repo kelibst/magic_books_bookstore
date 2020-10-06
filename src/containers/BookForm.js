@@ -59,7 +59,7 @@ class BookForm extends Component {
 
   render() {
     return (
-      <form className="form-row" onSubmit={this.handleSubmit}>
+      <form className="form-row mt-5 pt-5" onSubmit={this.handleSubmit}>
         <div className="col">
           <input
             className="form-control"
@@ -81,7 +81,7 @@ class BookForm extends Component {
         </div>
         <div className="col">
           <button className="btn btn-primary mb-2" type="submit">
-            create new book
+            Add Book
           </button>
         </div>
       </form>
